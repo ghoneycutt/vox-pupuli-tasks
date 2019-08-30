@@ -19,9 +19,6 @@
             = semantic_icon(:list)
             Repositories
           .right.menu
-            %a.item{href: '/sidekiq', target: '_blank'}
-              = semantic_icon(:cogs)
-              Background Jobs
             - if current_user.blank?
               = link_to '/auth/github', class: 'item' do
                 = semantic_icon(:github)
@@ -32,7 +29,15 @@
                   %img.ui.avatar.image{src: current_user.avatar_url}
                   = current_user.username
                 .menu
-                  %a.item{href: '/sessions/destroy'} Log Out
+                  %a.item{href: '/about'}
+                    = semantic_icon(:coffee)
+                    About
+                  %a.item{href: '/sidekiq', target: '_blank'}
+                    = semantic_icon(:cogs)
+                    Background Jobs
+                  %a.item{href: '/sessions/destroy'}
+                    = semantic_icon(:power, :off)
+                    Log Out
                 = semantic_icon(:dropdown)
     .ui.container{style: 'padding-top: 58px;'}
       = yield
